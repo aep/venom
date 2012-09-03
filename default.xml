@@ -1,58 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote   name="aosp"
-            fetch="https://android.googlesource.com/"
-            review="https://android-review.googlesource.com/"
-            />
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com/"
+           review="https://android-review.googlesource.com/"
+           />
 
-  <remote   name="x86"
-            fetch="http://git.android-x86.org/"
-            />
+  <remote  name="x86"
+           fetch="http://git.android-x86.org/"
+           />
 
-  <remote   name="klaatu"
-            fetch="git://gitorious.org/cambridge/"
-            />
+  <remote  name="klaatu"
+           fetch="git://gitorious.org/cambridge/"
+           />
 
-  <default  revision="refs/tags/android-4.1.1_r1"
-            remote="aosp"
-            sync-j="1"
-            />
-
-
-  <!-- x86 -->
-  <project path="external/alsa-lib" name="platform/external/alsa-lib" remote="x86" revision="ics-x86" />
-  <project path="external/alsa-utils" name="platform/external/alsa-utils" remote="x86" revision="ics-x86" />
-  <project path="external/busybox" name="platform/external/busybox" remote="x86" revision="ics-x86" />
-  <project path="external/eject" name="platform/external/eject" remote="x86" revision="ics-x86" />
-  <project path="external/llvm" name="platform/external/llvm" remote="x86" revision="ics-x86" />
-  <project path="external/tslib" name="platform/external/tslib" remote="x86" revision="ics-x86" />
-  <project path="external/mesa" name="platform/external/mesa" remote="x86" revision="ics-x86" />
-  <project path="external/ppp" name="platform/external/ppp" remote="x86" revision="ics-x86" />
-  <project path="external/v86d" name="platform/external/v86d" remote="x86" revision="ics-x86" />
-
-  <!-- x86 specific -->
-  <project path="external/drm" name="platform/external/drm" remote="x86" revision="ics-x86" />
-  <project path="hardware/drm_gralloc" name="platform/hardware/drm_gralloc" remote="x86" revision="ics-x86" />
-
-  <!-- x86 , replacing aosp -->
-  <project path="external/webkit" name="platform/external/webkit" remote="x86" revision="ics-x86" />
-  <project path="external/mksh" name="platform/external/mksh" remote="x86" revision="ics-x86" />
-
-  <!-- NRC Klaatu -->
-  <project path="dalvik" name="klaatu-jni-stub.git" remote="klaatu" revision="master"/>
+  <default revision="refs/tags/android-4.1.1_r1"
+           remote="aosp"
+           sync-j="1"
+           />
 
 
-  <!-- AOSP -->
-  <project path="build" name="platform/build" >
+  <!--
+        ==== x86 ====
+        the android x86 project
+  -->
+
+  <project path="external/alsa-lib"    name="platform/external/alsa-lib"
+           remote="x86" revision="ics-x86" />
+  <project path="external/alsa-utils"  name="platform/external/alsa-utils"
+           remote="x86" revision="ics-x86" />
+  <project path="external/busybox"     name="platform/external/busybox"
+           remote="x86" revision="ics-x86" />
+  <project path="external/eject"       name="platform/external/eject"
+           remote="x86" revision="ics-x86" />
+  <project path="external/llvm"        name="platform/external/llvm"
+           remote="x86" revision="ics-x86" />
+  <project path="external/tslib"       name="platform/external/tslib"
+           remote="x86" revision="ics-x86" />
+  <project path="external/mesa"        name="platform/external/mesa"
+           remote="x86" revision="ics-x86" />
+  <project path="external/ppp"         name="platform/external/ppp"
+           remote="x86" revision="ics-x86" />
+  <project path="external/v86d"        name="platform/external/v86d"
+           remote="x86" revision="ics-x86" />
+
+  <!-- x86 hw specific stuff -->
+  <project path="external/drm"          name="platform/external/drm"
+           remote="x86" revision="ics-x86" />
+  <project path="hardware/drm_gralloc"  name="platform/hardware/drm_gralloc"
+           remote="x86" revision="ics-x86" />
+
+  <!-- x86 enhancements over aosp -->
+  <project path="external/webkit"       name="platform/external/webkit"
+           remote="x86" revision="ics-x86" />
+  <project path="external/mksh"         name="platform/external/mksh"
+           remote="x86" revision="ics-x86" />
+
+
+
+  <!--
+        ==== NRC klaatu ====
+        remove java
+  -->
+
+  <project path="dalvik"    name="klaatu-jni-stub.git"
+           remote="klaatu"  revision="master"/>
+
+
+
+  <!--
+        ==== AOSP ====
+        the holy upstream
+  -->
+
+  <project path="build"     name="platform/build" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
+
   <project path="abi/cpp" name="platform/abi/cpp" />
   <project path="bionic" name="platform/bionic" />
+
   <project path="bootable/bootloader/legacy" name="platform/bootable/bootloader/legacy" />
   <project path="bootable/diskinstaller" name="platform/bootable/diskinstaller" />
   <project path="bootable/recovery" name="platform/bootable/recovery" />
-
 
   <project path="device/common" name="device/common" />
   <!--
@@ -194,6 +224,8 @@
   <project path="external/yaffs2" name="platform/external/yaffs2" />
   <project path="external/zlib" name="platform/external/zlib" />
   <project path="external/zxing" name="platform/external/zxing" />
+
+
   <project path="frameworks/av" name="platform/frameworks/av" />
   <project path="frameworks/base" name="platform/frameworks/base" />
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" />
@@ -208,6 +240,7 @@
   <project path="frameworks/support" name="platform/frameworks/support" />
   <project path="frameworks/testing" name="platform/frameworks/testing" />
   <project path="frameworks/wilhelm" name="platform/frameworks/wilhelm" />
+
   <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" />
   <project path="hardware/invensense" name="platform/hardware/invensense" />
   <project path="hardware/libhardware" name="platform/hardware/libhardware" />
@@ -220,27 +253,50 @@
   <project path="hardware/ti/omap4xxx" name="platform/hardware/ti/omap4xxx" />
   <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" />
   <project path="hardware/ti/wpan" name="platform/hardware/ti/wpan" />
-  <project path="prebuilt" name="platform/prebuilt" />
-  <project path="prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6" />
-  <project path="prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6" />
-  <project path="prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.4.3" name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.4.3" />
-  <project path="prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6" name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6" />
-  <project path="prebuilts/gcc/darwin-x86/x86/i686-android-linux-4.4.3" name="platform/prebuilts/gcc/darwin-x86/x86/i686-android-linux-4.4.3" />
-  <project path="prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6" name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" />
-  <project path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.4.3" name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.4.3" />
-  <project path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" />
-  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" />
-  <project path="prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.4.3" name="platform/prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.4.3" />
-  <project path="prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.6" name="platform/prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.6" />
-  <project path="prebuilts/gcc/linux-x86/x86/i686-android-linux-4.4.3" name="platform/prebuilts/gcc/linux-x86/x86/i686-android-linux-4.4.3" />
-  <project path="prebuilts/gcc/linux-x86/x86/i686-linux-android-4.6" name="platform/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.6" />
-  <project path="prebuilts/misc" name="platform/prebuilts/misc" />
-  <project path="prebuilts/ndk" name="platform/prebuilts/ndk" />
-  <project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" />
-  <project path="prebuilts/sdk" name="platform/prebuilts/sdk" />
-  <project path="prebuilts/tools" name="platform/prebuilts/tools" />
+
+  <project path="prebuilt"
+           name="platform/prebuilt" />
+  <project path="prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6"
+           name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6" />
+  <project path="prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6"
+           name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6" />
+  <project path="prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.4.3"
+           name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.4.3" />
+  <project path="prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6"
+           name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6" />
+  <project path="prebuilts/gcc/darwin-x86/x86/i686-android-linux-4.4.3"
+           name="platform/prebuilts/gcc/darwin-x86/x86/i686-android-linux-4.4.3" />
+  <project path="prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6"
+           name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.6"
+           name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6"
+           name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" />
+  <project path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.4.3"
+           name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.4.3" />
+  <project path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6"
+           name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6"
+           name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" />
+  <project path="prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.4.3"
+           name="platform/prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.4.3" />
+  <project path="prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.6"
+           name="platform/prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.6" />
+  <project path="prebuilts/gcc/linux-x86/x86/i686-android-linux-4.4.3"
+           name="platform/prebuilts/gcc/linux-x86/x86/i686-android-linux-4.4.3" />
+  <project path="prebuilts/gcc/linux-x86/x86/i686-linux-android-4.6"
+           name="platform/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.6" />
+  <project path="prebuilts/misc"
+           name="platform/prebuilts/misc" />
+  <project path="prebuilts/ndk"
+           name="platform/prebuilts/ndk" />
+  <project path="prebuilts/qemu-kernel"
+           name="platform/prebuilts/qemu-kernel" />
+  <project path="prebuilts/sdk"
+           name="platform/prebuilts/sdk" />
+  <project path="prebuilts/tools"
+           name="platform/prebuilts/tools" />
+
   <project path="system/bluetooth" name="platform/system/bluetooth" />
   <project path="system/core" name="platform/system/core" />
   <project path="system/extras" name="platform/system/extras" />
