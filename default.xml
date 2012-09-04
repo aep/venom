@@ -27,12 +27,13 @@
         me
   -->
 
-  <project path="build"     name="venom_platform_build" remote="venom" >
+  <project path="build"     name="venom_platform_build"
+        remote="venom" revision='master'>
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
 
   <project path="frameworks/base" name="venom_platform_frameworks_base"
-      remote="venom"/>
+      remote="venom" revision='master'  />
 
   <!--
         ==== NRC klaatu ====
