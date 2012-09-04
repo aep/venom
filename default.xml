@@ -14,12 +14,33 @@
            fetch="git://gitorious.org/cambridge/"
            />
 
-  <default revision="refs/tags/android-4.1.1_r1"
+  <remote  name="venom"
+           fetch="git://github.com/aep/venom/"
+           />
+
+   <default revision="refs/tags/android-4.1.1_r1"
            remote="aosp"
            sync-j="1"
            />
+  <!--
+        ==== Venom ====
+        me
+  -->
 
+  <project path="build"     name="platform/build" remote="venom" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
 
+  <project path="frameworks/base" name="platform/frameworks/base"
+      remote="venom"/>
+
+  <!--
+        ==== NRC klaatu ====
+        dalvik stubs
+  -->
+
+  <project path="dalvik"    name="klaatu-jni-stub.git"
+           remote="klaatu"  revision="master"/>
   <!--
         ==== x86 ====
         the android x86 project
@@ -54,13 +75,6 @@
 
 
 
-  <!--
-        ==== NRC klaatu ====
-        remove java
-  -->
-
-  <project path="dalvik"    name="klaatu-jni-stub.git"
-           remote="klaatu"  revision="master"/>
 
 
 
@@ -69,9 +83,6 @@
         the holy upstream
   -->
 
-  <project path="build"     name="platform/build" >
-    <copyfile src="core/root.mk" dest="Makefile" />
-  </project>
 
   <project path="abi/cpp" name="platform/abi/cpp" />
   <project path="bionic" name="platform/bionic" />
@@ -222,7 +233,6 @@
 
 
   <project path="frameworks/av" name="platform/frameworks/av" />
-  <project path="frameworks/base" name="platform/frameworks/base" />
   <project path="frameworks/ex" name="platform/frameworks/ex" />
   <project path="frameworks/mff" name="platform/frameworks/mff" />
   <project path="frameworks/ml" name="platform/frameworks/ml" />
