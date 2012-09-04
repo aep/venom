@@ -67,17 +67,6 @@
   <project path="hardware/drm_gralloc"  name="platform/hardware/drm_gralloc"
            remote="x86" revision="ics-x86" />
 
-  <!-- x86 enhancements over aosp -->
-  <project path="external/webkit"       name="platform/external/webkit"
-           remote="x86" revision="ics-x86" />
-  <project path="external/mksh"         name="platform/external/mksh"
-           remote="x86" revision="ics-x86" />
-
-
-
-
-
-
   <!--
         ==== AOSP ====
         the holy upstream
