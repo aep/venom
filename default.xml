@@ -15,7 +15,7 @@
            />
 
   <remote  name="venom"
-           fetch="git://github.com/aep/venom/"
+           fetch="git://github.com/aep/"
            />
 
    <default revision="refs/tags/android-4.1.1_r1"
@@ -27,11 +27,11 @@
         me
   -->
 
-  <project path="build"     name="platform/build" remote="venom" >
+  <project path="build"     name="venom_platform_build" remote="venom" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
 
-  <project path="frameworks/base" name="platform/frameworks/base"
+  <project path="frameworks/base" name="venom_platform_frameworks_base"
       remote="venom"/>
 
   <!--
