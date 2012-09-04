@@ -171,7 +171,7 @@
   <project path="external/mesa3d" name="platform/external/mesa3d" />
   <project path="external/mockwebserver" name="platform/external/mockwebserver" />
   <project path="external/mtpd" name="platform/external/mtpd" />
-  <project path="external/mksh"         name="platform/external/mksh" >
+  <project path="external/mksh"         name="platform/external/mksh" />
   <project path="external/naver-fonts" name="platform/external/naver-fonts" />
   <project path="external/netcat" name="platform/external/netcat" />
   <project path="external/netperf" name="platform/external/netperf" />
@@ -213,7 +213,7 @@
   <project path="external/valgrind" name="platform/external/valgrind" />
   <project path="external/webp" name="platform/external/webp" />
   <project path="external/webrtc" name="platform/external/webrtc" />
-  <project path="external/webkit"       name="platform/external/webkit" >
+  <project path="external/webkit"       name="platform/external/webkit" />
   <project path="external/wpa_supplicant_6" name="platform/external/wpa_supplicant_6" />
   <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" />
   <project path="external/xmlwriter" name="platform/external/xmlwriter" />
